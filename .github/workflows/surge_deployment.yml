@@ -6,9 +6,9 @@ name: Deploy Your App on Surge
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,8 +27,8 @@ jobs:
 
       - name: Install NodeJS
         uses: actions/checkout@v2
-        
+
       - name: Install Surge
         run: npm install -g surge
       - name: Run surge
-        run: surge noaman-surge-v1.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./ noaman-surge-v1.surge.sh --token ${{ secrets.SURGE_TOKEN }}
